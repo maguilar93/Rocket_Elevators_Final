@@ -1,0 +1,28 @@
+<h1>Geolocalisation#index</h1>
+<p>Find me in app/views/geolocalisation/index.html.erb</p>
+<div style='width: 800px;'>  
+  <div id="map" style='width: 800px; height: 400px;'></div>  
+</div>  
+
+<script type="text/javascript">  
+handler = Gmaps.build('Google');  
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){  
+  markers = handler.addMarkers([  
+    {  
+      "lat": 37.3333945,  
+      "lng": -121.8806499,  
+      "picture": {  
+        "width":  32,  
+        "height": 32  
+      },  
+      "infowindow": "salut alexis Nombre d’étage du building" 
+     " 
+    
+
+
+    }  
+  ]);  
+  handler.bounds.extendWith(markers);  
+  handler.fitMapToBounds();  
+});  
+</script>
