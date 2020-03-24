@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  get 'geolocalisation/index'
+ 
   devise_for :users
   devise_for :employees, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :quote
   resources :leads
 
-  root to: 'geolocalisation#index'
+  # root to: 'geolocalisation#index'
   root 'leads#new'
 
   get 'index' => 'leads#new' # index
