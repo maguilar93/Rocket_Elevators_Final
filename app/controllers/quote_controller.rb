@@ -13,11 +13,7 @@ class QuoteController < ApplicationController
     ZendeskAPI::Ticket.create!(@client, 
     :subject => "#{@quote.Full_Name} from #{@quote.Company_Name}", 
     :comment => { :value => 
-      "The contact #{@quote.Full_Name} from company #{@quote.Company_Name} can be reached at email #{@quote.Email} and at phone number #{@quote.Phone_Number}. #{@quote.Building_Type} has a project named [Project Name] which would require contribution from Rocket Elevators. 
-      [Project Description]
-      Attached Message: [Message]
-
-      The Contact uploaded an attachment"},
+      "The contact #{@quote.Full_Name} from company #{@quote.Company_Name} can be reached at email #{@quote.Email} and at phone number #{@quote.Phone_Number}. Building type selected is #{@quote.Building_Type} with product line #{@quote.Product_Grade}. Number of suggested elevator is #{@quote.Nb_Ele_Suggested} and total price is #{@quote.Final_Price}."},
     :type => "task",  
     :priority => "urgent")
 
