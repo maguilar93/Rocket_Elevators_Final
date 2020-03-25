@@ -2,7 +2,7 @@ require_relative 'boot'
 
 require 'rails/all'
 require 'faker'
-include 'IBMWatson'
+# include 'IBMWatson'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
