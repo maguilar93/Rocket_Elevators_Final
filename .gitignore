@@ -28,4 +28,4 @@
 /config/master.key
 
 #ignore ibm watson ENV
-ibm-credentials.ENV
+ibm-credentials.env
