@@ -4,10 +4,17 @@ class Elevator < ApplicationRecord
     belongs_to :column
 
     
-    after_save :send_sms, if: :intervention?
-    def send_sms
+    after_update :send_sms, if: :intervention?
+
+
+    def send_sms()
+        t = self.column.battery.building.tech_full_name
         sms = SendSms::Sms.new
-        sms.send_sms
+        sms.send_sms(t)
+    end
+
+    def intervention?
+        self.status == "Intervention"
     end
 
 end      
