@@ -43,7 +43,7 @@ gem 'faker'
 gem 'date'
 gem 'whenever', require: false
 gem "chartkick"
-
+gem 'gmaps4rails'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
@@ -93,3 +93,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #ibm_watson
 gem "ibm_watson"
+gem 'figaro'
+
+gem 'twilio-ruby'
+gem 'phonelib'
+
+# Zendesk API
+gem "zendesk_api"

@@ -14,5 +14,14 @@ ActiveAdmin.register Lead do
         column  :timestamp
         actions
     end
-end
+
+    collection_action :published_items do
+        @collection = Post.published
+        column(:created_at)
+        column(:author_name)
+        column(:published_at)
+        column(:title) { |resource| resource.truncate(100) }
+      end
+    
+    end
   
