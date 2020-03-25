@@ -95,3 +95,6 @@ gem 'figaro'
 
 gem 'twilio-ruby'
 gem 'phonelib'
+
+# Zendesk API
+gem "zendesk_api"
