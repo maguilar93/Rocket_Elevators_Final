@@ -27,5 +27,9 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
+#ignore ibm watson ENV
+ibm-credentials.env
 # Ignore application configuration
 /config/application.yml
+
+/vendor/cache

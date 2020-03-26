@@ -1,4 +1,7 @@
 class LeadsController < ApplicationController
+
+
+
   def index
   end
 
@@ -36,6 +39,9 @@ class LeadsController < ApplicationController
   end
   #for get params when click submit form
   
+
+
+
   private
   def lead_params
     #params.require(name model)

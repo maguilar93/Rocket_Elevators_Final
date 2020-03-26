@@ -92,10 +92,12 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+#ibm_watson
+gem "ibm_watson"
 gem 'figaro'
 
 gem 'twilio-ruby'
 gem 'phonelib'
 
 # Zendesk API
-gem "zendesk_api"
+gem 'zendesk_api', git: 'https://github.com/zendesk/zendesk_api_client_rb'
