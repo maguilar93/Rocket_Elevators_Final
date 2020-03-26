@@ -44,7 +44,8 @@ gem 'date'
 gem 'whenever', require: false
 gem "chartkick"
 gem 'gmaps4rails'
-
+gem "faraday"
+gem "figaro"
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

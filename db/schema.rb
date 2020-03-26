@@ -167,8 +167,6 @@ ActiveRecord::Schema.define(version: 2020_03_13_200840) do
     t.text "file_data"
   end
 
-<<<<<<< HEAD
-=======
   create_table "places", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.decimal "latitude", precision: 10
@@ -185,7 +183,6 @@ ActiveRecord::Schema.define(version: 2020_03_13_200840) do
     t.datetime "updated_at", null: false
   end
 
->>>>>>> fix version
   create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "Full_Name"
     t.integer "Phone_Number"
