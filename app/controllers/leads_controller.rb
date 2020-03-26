@@ -27,6 +27,8 @@ class LeadsController < ApplicationController
 
     #render json: @lead #test when submit button form
     if @lead.save
+
+      ContactsMailer.contact_email(@lead).deliver
       flash[:notice] = "We received your request! "
       redirect_to :index
     else
