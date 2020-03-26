@@ -13,8 +13,8 @@ class GeolocalisationController < ApplicationController
         c_ids = Column.where(battery_id: building.battery_ids).ids
         e = Elevator.where(column_id: c_ids).count
 
-        # nfloors = building.building_details.where("LOWER(information_key) like '%floor%'").first
-        # floors = nfloors ? nfloors.value : "Not available"
+         nfloors = building.building_details.where("LOWER(info_key) like '%floor%'").first
+         floors = nfloors ? nfloors.value : "Not available"
 
         add = " #{address.number_n_street}, #{address.city}, #{address.status}, #{address.postal_code}"
 
@@ -30,7 +30,7 @@ class GeolocalisationController < ApplicationController
 
             @points_list << {name: building.admin_full_name, 
                 lat: @lat, long: @lng, 
-                address: add, #floors: floors,
+                address: add, floors: floors,
                 client: building.admin_full_name, 
                 battery: b, column: c, elevator: e,
                 technician: building.tech_full_name}
