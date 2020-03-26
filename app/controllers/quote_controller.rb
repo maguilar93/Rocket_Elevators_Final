@@ -8,6 +8,16 @@ class QuoteController < ApplicationController
 
   def create
     @quote = Quote.new(quote_params)
+
+    #Create ticket on Zendesk from Quote Form
+    ZendeskAPI::Ticket.create!(@client, 
+    :subject => "#{@quote.Full_Name} from #{@quote.Company_Name}",
+    :requester => {"name": @lead.email},
+    :comment => { :value => 
+      "The contact #{@quote.Full_Name} from company #{@quote.Company_Name} can be reached at email #{@quote.Email} and at phone number #{@quote.Phone_Number}. Building type selected is #{@quote.Building_Type} with product line #{@quote.Product_Grade}. Number of suggested elevator is #{@quote.Nb_Ele_Suggested} and total price is #{@quote.Final_Price}."},
+    :type => "task",  
+    :priority => "urgent")
+
     #render json: @quote #test when submit button form
     if @quote.save
       flash[:notice] = "add new quete successfull "
