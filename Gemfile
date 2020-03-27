@@ -51,7 +51,7 @@ gem "slack-notifier"
 gem 'slack-ruby-client'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
-
+gem "faraday_middleware"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

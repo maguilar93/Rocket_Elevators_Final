@@ -21,9 +21,7 @@ class Elevator < ApplicationRecord
          
     
     
-        def intervention?
-            self.status = "Intervention"
-        end
+        
     end
     
 

@@ -397,6 +397,7 @@ DEPENDENCIES
   devise
   faker
   faraday
+  faraday_middleware
   figaro
   font-awesome-rails
   font-awesome-sass (~> 5.12.0)
