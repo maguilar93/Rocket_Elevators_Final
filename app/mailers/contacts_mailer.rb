@@ -5,7 +5,7 @@ class ContactsMailer < ApplicationMailer
   def contact_email(lead)
     @lead = lead
     mail( 
-        :to => "ng.afandy@gmail.com",
+        :to => "tiboclan@gmail.com",
         :subject => 'Thank you for contacting Rocket Elevators' )
   end
 end
