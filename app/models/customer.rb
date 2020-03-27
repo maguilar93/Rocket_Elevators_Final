@@ -5,7 +5,7 @@ class Customer < ApplicationRecord
     after_create :upload_lead_files
 
     def upload_lead_files
-        dropbox_client = DropboxApi::Client.new('32yIPze6XJAAAAAAAAAADbSzeVs0Q1_-72u4OYTD-g21WkDwNflh9kK80rDyS5Tx')
+        dropbox_client = DropboxApi::Client.new(ENV["DROPBOX_API"])
         lead = Lead.find_by_email(self.contact_email)
         puts '#############################'
         puts lead.email
