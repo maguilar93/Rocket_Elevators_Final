@@ -1,5 +1,5 @@
 ActionMailer::Base.smtp_settings = {
-  domain: 'http://localhost:3000/',
+  domain: 'https://projectrocketelevators.com/',
   address:        "smtp.sendgrid.net",
   port:            587,
   authentication: :plain,
