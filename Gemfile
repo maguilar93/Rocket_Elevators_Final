@@ -46,6 +46,9 @@ gem "chartkick"
 gem 'gmaps4rails'
 gem "faraday"
 gem "figaro"
+
+gem "slack-notifier"
+gem 'slack-ruby-client'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
