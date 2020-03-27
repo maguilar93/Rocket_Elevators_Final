@@ -9,9 +9,6 @@ class LeadsController < ApplicationController
   def create
     @lead = Lead.new(lead_params)
 
-    # client = DropboxApi::Client.new("32yIPze6XJAAAAAAAAAADbSzeVs0Q1_-72u4OYTD-g21WkDwNflh9kK80rDyS5Tx")
-    # client.create_folder("/rocket")
-
     puts "CREATING"
     p = params["lead"].permit!
     puts "PARAMS = #{p}"
