@@ -5,18 +5,20 @@ module SendSms
         def initialize
         end
 
-        def send_sms(technician)
+        def send_sms(technician, id, sn, status)
             account_sid = ENV["TWILIO_ACCOUNT_SID"]
             auth_token =ENV["TWILIO_AUTH_TOKEN"]
             client = Twilio::REST::Client.new(account_sid, auth_token)
 
             from = ENV["TWILIO_PHONE_NUMBER"] # Your Twilio number
-            to = '+15149912026' # Your mobile phone number
+
+            to = '+15145037764' # Your mobile phone number
+
 
             client.messages.create(
             from: from,
             to: to,
-            body: "The elevator needs an intervention. The technician assigned is: #{technician}."
+            body: "The elevator #{id} with Serial Number #{sn} needs an #{status}. The technician assigned is: #{technician}."
             )
         end
 
