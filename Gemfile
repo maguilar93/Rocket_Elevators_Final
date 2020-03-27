@@ -44,7 +44,7 @@ gem 'date'
 gem 'whenever', require: false
 gem "chartkick"
 gem 'gmaps4rails'
-gem "faraday"
+
 gem "figaro"
 
 gem "slack-notifier"
