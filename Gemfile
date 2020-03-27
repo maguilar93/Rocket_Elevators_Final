@@ -97,7 +97,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #ibm_watson
 gem "ibm_watson"
-gem 'figaro'
+
 
 gem 'twilio-ruby'
 gem 'phonelib'
