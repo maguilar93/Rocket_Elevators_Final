@@ -19,8 +19,8 @@ class Customer < ApplicationRecord
             puts "Folder created for #{self.name_company_contact}!!!"
             puts "#############################"
             #find lead attached_file and put it in drop box
-            binary = lead.attached_file.download
-            dropbox_client.upload("/#{self.name_company_contact}/#{lead.attached_file}", Rails.application.routes.url_helpers.rails_blob_path(lead.attached_file.download, disposition: "attachment", only_path: true))
+        
+            dropbox_client.upload("/#{self.name_company_contact}/#{lead.attached_file}", lead.attached_file.download)
             #check if the upload to dropbox is successful...
             puts "successfully uploaded!"
             #destroy lead attachment file
