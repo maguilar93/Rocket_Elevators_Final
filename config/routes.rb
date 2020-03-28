@@ -22,6 +22,9 @@ Rails.application.routes.draw do
 
   get 'welcome' => 'watson#welcome'
   get 'geolocalisation/index'
+
+  get 'dropbox/auth' => 'dropbox#auth'
+  get 'dropbox/auth_callback' => 'dropbox#auth_callback'
   # namespace :admin do
   #   resources :addresses do
   #     resources :customers do

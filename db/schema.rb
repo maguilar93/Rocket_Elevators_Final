@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_24_162123) do
+
+ActiveRecord::Schema.define(version: 2020_03_27_155804) do
+
+# ActiveRecord::Schema.define(version: 2020_03_24_162123) do
+
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "namespace"
@@ -143,6 +147,7 @@ ActiveRecord::Schema.define(version: 2020_03_24_162123) do
     t.binary "attached_file"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+
   end
 
   create_table "places", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -159,6 +164,7 @@ ActiveRecord::Schema.define(version: 2020_03_24_162123) do
     t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+
   end
 
   create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

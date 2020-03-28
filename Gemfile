@@ -105,3 +105,10 @@ gem 'phonelib'
 
 # Zendesk API
 gem 'zendesk_api', git: 'https://github.com/zendesk/zendesk_api_client_rb'
+
+
+# Dropbox API
+gem 'dropbox_api'
+gem 'paperclip'
+
+

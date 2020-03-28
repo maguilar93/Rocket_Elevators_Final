@@ -12,6 +12,20 @@ class LeadsController < ApplicationController
   def create
     @lead = Lead.new(lead_params)
 
+    puts "CREATING"
+    p = params["lead"].permit!
+    puts "PARAMS = #{p}"
+    @file_attachment = p["attached_file"]
+    # file_attachment = params["attached_file"]
+    if file_attachment != nil
+      # p["attached_file"] = file_attachment.read
+      p["original_file_name"] = file_attachment.original_filename
+      puts "WRITING UPLOAD"
+      File.open(Rails.root.join('public', file_attachment.original_filename), 'wb') do |file|
+        file.write(file_attachment.read)
+      end
+    end
+
     #Create ticket on Zendesk from Contact Form
     ZendeskAPI::Ticket.create!(@client, 
       :subject => "#{@lead.full_name} from #{@lead.company_name}",
