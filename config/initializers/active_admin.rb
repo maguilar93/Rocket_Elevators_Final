@@ -241,7 +241,7 @@ ActiveAdmin.setup do |config|
   #
     config.namespace :admin do |admin|
       admin.build_menu :default do |menu|
-        menu.add label: "test reda", url: "http://localhost:3000/geolocalisation/index", html_options: { target: :blank }
+        menu.add label: "Geolocalisation all Customers ", url: "/geolocalisation/index", html_options: { target: :blank }
       end
     end
 

@@ -44,7 +44,11 @@ gem 'date'
 gem 'whenever', require: false
 gem "chartkick"
 gem 'gmaps4rails'
+gem "faraday"
+gem "figaro"
 
+gem "slack-notifier"
+gem 'slack-ruby-client'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
@@ -91,7 +95,10 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'figaro'
+#ibm_watson
+gem "ibm_watson"
+
+
 
 gem 'twilio-ruby'
 gem 'phonelib'
@@ -99,7 +106,9 @@ gem 'phonelib'
 # Zendesk API
 gem 'zendesk_api', git: 'https://github.com/zendesk/zendesk_api_client_rb'
 
+
 # Dropbox API
 gem 'dropbox_api'
 gem 'paperclip'
+
 

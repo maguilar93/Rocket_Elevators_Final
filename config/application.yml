@@ -1,0 +1,30 @@
+# Add configuration values here, as shown below.
+#
+# pusher_app_id: "2954"
+# pusher_key: 7381a978f7dd7f9a1117
+# pusher_secret: abdc3b896a0ffb85d373
+# stripe_api_key: sk_test_2J0l093xOyW72XUYJHE4Dv2r
+# stripe_publishable_key: pk_test_ro9jV5SNwGb1yYlQfzG17LHK
+#
+# production:
+#   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
+#   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
+# config/application.yml
+
+API_FOR_GMAP: "AIzaSyDM0bUR2l95VcS584KEgnQfj819PVC4M8Q"
+
+# Twilio
+TWILIO_ACCOUNT_SID: "AC95576ac5e1e79d39f272e5b3afcb425f"
+TWILIO_AUTH_TOKEN: " 5f2e531eb09c73b8853291a87e40408b"
+TWILIO_PHONE_NUMBER: "+12035948823"
+#Zendesk
+ZENDESK_USERNAME: "ng.afandy@gmail.com"
+ZENDESK_TOKEN: "TYXkAA4RshbCUwMTsC2JQ0bbPZ99KaSQzgLfFpkj"
+SENDGRID_API_KEY: "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"
+SENDGRID_USERNAME: "apikey"
+DROPBOX_TOKEN: "4dp9he7igaaqkwb"
+# IBM Watson
+TEXT_TO_SPEECH_APIKEY: f9YvAWxa1Lj4-JhMnMdNOno-SzTibDqRHeavEIBalTGw
+TEXT_TO_SPEECH_IAM_APIKEY: f9YvAWxa1Lj4-JhMnMdNOno-SzTibDqRHeavEIBalTGw
+TEXT_TO_SPEECH_URL: https://api.us-south.text-to-speech.watson.cloud.ibm.com/instances/2aae756e-fb09-4c7f-bfd2-5d8785fa39e7
+TEXT_TO_SPEECH_AUTH_TYPE: iam
