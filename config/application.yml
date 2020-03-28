@@ -28,3 +28,5 @@ TEXT_TO_SPEECH_APIKEY: f9YvAWxa1Lj4-JhMnMdNOno-SzTibDqRHeavEIBalTGw
 TEXT_TO_SPEECH_IAM_APIKEY: f9YvAWxa1Lj4-JhMnMdNOno-SzTibDqRHeavEIBalTGw
 TEXT_TO_SPEECH_URL: https://api.us-south.text-to-speech.watson.cloud.ibm.com/instances/2aae756e-fb09-4c7f-bfd2-5d8785fa39e7
 TEXT_TO_SPEECH_AUTH_TYPE: iam
+
+SLACK_URL:  "https://hooks.slack.com/services/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"

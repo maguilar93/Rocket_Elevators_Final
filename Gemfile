@@ -57,7 +57,7 @@ gem 'slack-ruby-client'
 
 # OwlCarousel gem
 gem 'owlcarousel-rails', '~> 1.1', '>= 1.1.3.3'
-
+gem 'dotenv-rails'
 # Mix it up gem
 gem 'mixitup-rails'
 
