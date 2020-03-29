@@ -2,6 +2,8 @@ require_relative 'boot'
 
 require 'rails/all'
 require 'faker'
+
+require "active_storage/engine"
 # include 'IBMWatson'
 
 # Require the gems listed in Gemfile, including any gems

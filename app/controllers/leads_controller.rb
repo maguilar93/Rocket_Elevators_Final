@@ -15,7 +15,7 @@ class LeadsController < ApplicationController
     puts "CREATING"
     p = params["lead"].permit!
     puts "PARAMS = #{p}"
-    @file_attachment = p["attached_file"]
+    file_attachment = p["attached_file"]
     # file_attachment = params["attached_file"]
     if file_attachment != nil
       # p["attached_file"] = file_attachment.read
@@ -44,7 +44,7 @@ class LeadsController < ApplicationController
 
       ContactsMailer.contact_email(@lead).deliver
       flash[:notice] = "We received your request! "
-      redirect_to :index
+      redirect_to action:"index"
     else
       flash[:notice] = "Request not succesfull."
       redirect_to action:"new"

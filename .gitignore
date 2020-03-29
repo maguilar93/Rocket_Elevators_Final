@@ -29,9 +29,11 @@
 
 #ignore ibm watson ENV
 ibm-credentials.env
+
+
+
+vendor/cache
+
+
 # Ignore application configuration
 /config/application.yml
-
-
-/vendor/cache
-

@@ -45,7 +45,7 @@ gem 'whenever', require: false
 gem "chartkick"
 gem 'gmaps4rails'
 gem "faraday"
-gem "figaro"
+
 
 gem "slack-notifier"
 gem 'slack-ruby-client'
@@ -110,5 +110,8 @@ gem 'zendesk_api', git: 'https://github.com/zendesk/zendesk_api_client_rb'
 # Dropbox API
 gem 'dropbox_api'
 gem 'paperclip'
+
+# Figaro gem
+gem 'figaro'
 
 
