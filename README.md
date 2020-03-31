@@ -28,7 +28,7 @@ The website have a backoffice that employee can login to access the data from qu
   In order to receive a message from Zendesk, you will have to send a Contact Us request request via our Homepage. It is also possible     if you fill up a quote request via our Get a Quote page. These messages will be sent to the Sales Representative, in this case,         Patrick Thibault.
   
 # Twilio
-  In order to receive a message from Twilio, you will have to update the status of the elevator. In order to do this, you need to access   Addresses > Customers > Buildings >Batteries > Columns > Elevators. you can do that through the admin link:                             http://projectrocketelevators.com/admin .
+  In order to receive a message from Twilio, you will have to update the status of the elevator. In order to do this, you need to access   Addresses > Customers > Buildings > Batteries > Columns > Elevators. you can do that through the admin link:                             http://projectrocketelevators.com/admin .
   You can then edit the elevator’s status to “Intervention”. This will send a message to Patrick Thibault’s mobile.
   
 # IBM-Watson :
