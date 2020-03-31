@@ -26,6 +26,7 @@
 //= require plugins/owl-carousel/owl.carousel.min.js
 //= require popper
 //= require bootstrap-sprockets
+//= require turbolinks
 
 //= require chartkick
 //= require Chart.bundle

@@ -1,5 +1,5 @@
 class ContactsMailer < ApplicationMailer
-    default :from => 'Rocket Elevators <ng.afandy@gmail.com>'
+    default :from => 'Rocket Elevators <thrifthshopdowntheroad@gmail.com>'
 
   # send a signup email to the user, pass in the user object that   contains the user's email address
   def contact_email(lead)
