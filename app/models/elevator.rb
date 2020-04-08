@@ -18,11 +18,7 @@ class Elevator < ApplicationRecord
             defaults channel: "#elevator_operations"
           end
           notifier.ping "The Elevator #{self.id} with Serial Number #{self.serial_number} changed status from #{self.status_was} to #{self.status} at #{current_time}."
-    end
-         
-    
-    
-        
+        end
     end
     
 

@@ -8,7 +8,6 @@
 Employee.create!(first_name: 'admin', last_name: 'istrator', title: 'A', email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 # Employee.create!(first_name: 'admin', last_name: 'istrator', title: 'A', email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 jack = Employee.create!(first_name: 'jackie', last_name: 'lai', title: 'B', email: 'jack@q', password: 'testing', password_confirmation: 'testing') 
-Employee.create!(first_name: '123', last_name: '321', title: '0', email: '123@123', password: '123123', password_confirmation: '123123') 
 
 Employee.create!(first_name: 'mathieu', last_name: 'houde', title: 'engineer', email: 'mathieu.houde@codeboxx.biz', password: '123456', password_confirmation: '123456') 
 Employee.create!(first_name: 'patrick', last_name: 'thibault', title: 'coach', email: 'tiboclan@gmail.com', password: '123456', password_confirmation: '123456') 
@@ -212,7 +211,7 @@ require 'date'
     end
 end
 
-5.times do |n|
+100.times do |n|
 
     typeF = ["Billing", "Shipping", "Home", "Business"].sample
     statusF = ["active", "inactive"].sample
@@ -334,21 +333,25 @@ end
             )
             rand(1..6).times do |n|
                 certificateF = Faker::IDNumber.valid
-                Elevator.create!(
-                    column_id:  fake_column.id,
-                    serial_number: Faker::IDNumber.south_african_id_number,
-                    model: ["Standard","Premium","Excellium"].sample,
-                    elevator_type: buildingtypeF,
-                    status: "active",
-                    date_commision: c,
-                    date_last_inspect: c,
-                    certificate_inspect: certificateF,
-                    info: notesF,
-                    notes: notesF,
-                    # created_at: c,
-                    # created_at: c
-                )
             end
+
+            
+        # fake_intervention = Intervention.create!(
+        #     author: fake_customer.company_name,
+        #     customer_id: fake_customer.id,
+        #     building_id: fake_building.id,
+        #     battery_id: fake_battery.id,
+        #     column_id: fake_column.id,
+        #     elevator_id: Elevator.id,
+        #     employee_id: jack.id,
+        #     start_date_interv: c,
+        #     end_date_interv: c,
+        #     result: ["Success","Failure","Incomplete"].sample,
+        #     report: Faker::Lorem.sentence(word_count: 3, supplemental: true, random_words_to_add: 3),
+        #     status:  ["Pending","InProgress","Interrupted","Resumed","Complete"].sample,
+        #     created_at: c,
+        #     updated_at: c,
+        # )
         end
     end
 end

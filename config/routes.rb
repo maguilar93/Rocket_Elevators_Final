@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
  
+
+  resources :interventions
   devise_for :users
   devise_for :employees, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -19,6 +21,8 @@ Rails.application.routes.draw do
   get 'sign_up' => 'users#sign_up'
   get 'sign_in' => 'users#sign_in'
   get 'leads' => 'leads#new'
+  get 'intervention' => 'intervention#new'
+
 
   get 'welcome' => 'watson#welcome'
   get 'geolocalisation/index'

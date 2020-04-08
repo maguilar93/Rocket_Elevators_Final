@@ -1,5 +1,6 @@
 class Customer < ApplicationRecord
     belongs_to :address
+    belongs_to :intervention, optional: true
     # belongs_to :users, optional: true
     has_many :buildings
     # after_create :upload_lead_files

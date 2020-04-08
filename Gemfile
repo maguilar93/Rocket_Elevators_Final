@@ -114,4 +114,5 @@ gem 'paperclip'
 # Figaro gem
 gem 'figaro'
 
-
+# Form in Active-Admin gem
+gem 'formtastic', '~> 3.0'

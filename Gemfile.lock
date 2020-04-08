@@ -426,6 +426,7 @@ DEPENDENCIES
   figaro
   font-awesome-rails
   font-awesome-sass (~> 5.12.0)
+  formtastic (~> 3.0)
   gmaps4rails
   ibm_watson
   jbuilder (~> 2.5)
