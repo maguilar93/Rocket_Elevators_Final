@@ -18,7 +18,7 @@ class InterventionsController < InheritedResources::Base
     #render json: @intervention #test when submit button form
     if @intervention.save
       flash[:notice] = "Add new intervention successfull "
-      redirect_to :intervention
+      redirect_to action:"new"
     else
       flash[:notice] = "Add new intervention not successfull "
       redirect_to action:"new"

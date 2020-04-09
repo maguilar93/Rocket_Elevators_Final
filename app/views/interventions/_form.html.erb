@@ -1,5 +1,4 @@
 
-
 <section id="requestform">
 	<div class="container">
 		<header class="text-center mb-60">
@@ -11,9 +10,11 @@
 
           <div class="row">
             <div class="control-group">
-              <div class="controls">
+              <div id="author_i">
                 <%= label_tag(:author, "*Author:") %>
-                <%= collection_select(:intervention, :author, Employee.order(:last_name), :id, :first_name, {prompt: 'none'} ) %>
+                <div id="author_s">
+                  <%= collection_select(:intervention, :author, Employee.order(:last_name), :id, :first_name, {prompt: 'None'} ) %>
+                </div>
               </div> 
             </div> 
           </div>
@@ -21,16 +22,18 @@
 
           <div class="row">
             <div class="control-group">
-              <div class="controls">
+              <div id="customer_i">
                 <%= label_tag(:customer_id, "*Customer:") %>
-                <%= collection_select(:intervention, :customer_id, Customer.order(:company_name), :id, :company_name, {prompt: 'Please select'} ) %>
+                <div id="customer_s">
+                  <%= collection_select(:intervention, :customer_id, Customer.order(:company_name), :id, :company_name, {prompt: 'Please select'} ) %>
+                </div>
               </div> 
             </div> 
           </div>
 
           <div class="row">
             <div class="control-group">
-              <div class="controls">
+              <div class="building_i">
                 <%= label_tag(:building_id, "*Building:") %>
                 <%= collection_select(:intervention, :building_id, Building.order(:id), :id, :id, {prompt: 'Please select'} ) %>
               </div> 
@@ -39,7 +42,7 @@
 
           <div class="row">
             <div class="control-group">
-              <div class="controls">
+              <div class="battery_i">
                 <%= label_tag(:battery_id, "*Battery:") %>
                 <%= collection_select(:intervention, :battery_id, Battery.order(:battery_type), :id, :id, {prompt: 'None'} ) %>
               </div> 
@@ -48,7 +51,7 @@
 
           <div class="row">
             <div class="control-group">
-              <div class="controls">
+              <div class="column_i">
                 <%= label_tag(:column_id, "*Column:") %>
                 <%= collection_select(:intervention, :column_id, Column.order(:id), :id, :id, {prompt: 'None'} ) %>
               </div> 
@@ -57,7 +60,7 @@
 
           <div class="row">
             <div class="control-group">
-              <div class="controls">
+              <div class="elevator_i">
                 <%= label_tag(:elevator_id, "*Elevators:") %>
                 <%= collection_select(:intervention, :elevator_id, Elevator.order(:serial_number), :id, :serial_number, {prompt: 'Please select'} ) %>
               </div> 
@@ -66,16 +69,16 @@
 
           <div class="row">
             <div class="control-group">
-              <div class="controls">
+              <div class="description_i">
                 <%= label_tag(:report, "*Description:") %>
-                <%= text_area_tag(:report, "", size: "30x4") %>          
+                <%= text_field_tag(:report) %>
               </div> 
             </div> 
           </div>
         
            <div class="row">
             <div class="control-group">
-              <div class="controls">
+              <div class="submit_i">
                 <%= submit_tag("Submit") %>
               </div> 
             </div> 
@@ -87,3 +90,5 @@
 	</div>
 </section>
 
+
+<%=javascript_tag "$('#author_i').prop('disabled', true)" %>

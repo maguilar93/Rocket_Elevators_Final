@@ -18,7 +18,7 @@ ActiveAdmin.register Address do
         column :suite_or_apt
         column :city
         column :postal_code
-        column :country
+        # column :country
         column :notes
         actions
     end
@@ -36,7 +36,7 @@ ActiveAdmin.register Address do
             f.input :suite_or_apt
             f.input :city
             f.input :postal_code
-            f.input :country
+            # f.input :country
             f.input :notes
         end
         f.actions

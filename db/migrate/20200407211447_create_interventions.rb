@@ -12,7 +12,7 @@ class CreateInterventions < ActiveRecord::Migration[5.2]
       t.datetime :start_date_interv
       t.datetime :end_date_interv
       t.string :result, :default => "Incomplete"
-      t.text :report, :null => false
+      t.string :report, :null => false, :default => ""
       t.string :status, :default => "Pending"
       t.timestamps
     end

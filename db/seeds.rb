@@ -333,9 +333,21 @@ end
             )
             rand(1..6).times do |n|
                 certificateF = Faker::IDNumber.valid
+                Elevator.create!(
+                    column_id:  fake_column.id,
+                    serial_number: Faker::IDNumber.south_african_id_number,
+                    model: ["Standard","Premium","Excellium"].sample,
+                    elevator_type: buildingtypeF,
+                    status: "active",
+                    date_commision: c,
+                    date_last_inspect: c,
+                    certificate_inspect: certificateF,
+                    info: notesF,
+                    notes: notesF,
+                    # created_at: c,
+                    # created_at: c
+                )
             end
-
-            
         # fake_intervention = Intervention.create!(
         #     author: fake_customer.company_name,
         #     customer_id: fake_customer.id,

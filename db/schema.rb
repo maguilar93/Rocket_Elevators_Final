@@ -163,7 +163,7 @@ ActiveRecord::Schema.define(version: 2020_04_07_211447) do
     t.datetime "start_date_interv"
     t.datetime "end_date_interv"
     t.string "result", default: "Incomplete"
-    t.text "report", null: false
+    t.string "report", default: "", null: false
     t.string "status", default: "Pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
