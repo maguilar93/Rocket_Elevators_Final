@@ -11,7 +11,7 @@
           <div class="row">
             <div class="col-md-6">
                 <%= label_tag(:author, "*Author:") %>
-                <%= collection_select(:intervention, :author, Employee.order(:last_name), :id, :first_name, {prompt: 'None'}, {id: "author_id"} ) %>
+                <%= collection_select(:intervention, :author, Employee.order(:last_name), :id, :first_name, {:include_blank => "None", :selected_value => :first_name || nil }, {id: "author_id"} ) %>
             </div> 
           </div> 
 
@@ -28,19 +28,19 @@
 
             <div class="col-md-4">
               <%= label_tag(:battery_id, "*Battery:") %>
-              <%= collection_select(:intervention, :battery_id, Battery.order(:battery_type), :id, :id, {prompt: 'None'}, {id: "battery_id"} ) %>
+              <%= collection_select(:intervention, :battery_id, Battery.order(:battery_type), :id, :id, {:include_blank => "None", :selected_value => :id || nil }, {id: "battery_id"} ) %>
             </div> 
           </div> 
 
           <div class="row">
             <div class="col-md-4">
               <%= label_tag(:column_id, "*Column:") %>
-              <%= collection_select(:intervention, :column_id, Column.order(:id), :id, :id, {prompt: 'None'}, {id: "column_id"} ) %>
+              <%= collection_select(:intervention, :column_id, Column.order(:id), :id, :id, {:include_blank => "None", :selected_value => :id || nil }, {id: "column_id"} ) %>
             </div> 
 
             <div class="col-md-4">
               <%= label_tag(:elevator_id, "*Elevators:") %>
-              <%= collection_select(:intervention, :elevator_id, Elevator.order(:serial_number), :id, :serial_number, {prompt: 'Please select'}, {id: "elevator_id"}) %>
+              <%= collection_select(:intervention, :elevator_id, Elevator.order(:serial_number), :id, :serial_number, {:include_blank => "None", :selected_value => :serial_number || nil }, {id: "elevator_id"}) %>
             </div> 
 
             <div class="col-md-4">

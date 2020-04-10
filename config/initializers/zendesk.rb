@@ -5,11 +5,13 @@ def initialize
     config.url = "https://rocket4826.zendesk.com/api/v2" # e.g. https://mydesk.zendesk.com/api/v2
 
     # Basic / Token Authentication
+    # config.username = ENV["ZENDESK_USERNAME"]
     config.username = ENV["ZENDESK_USERNAME"]
-
+    
     # Choose one of the following depending on your authentication choice
+    # config.token = ENV["ZENDESK_TOKEN"]
     config.token = ENV["ZENDESK_TOKEN"]
-
+    
     # Logger prints to STDERR by default, to e.g. print to stdout:
     require 'logger'
     config.logger = Logger.new(STDOUT)

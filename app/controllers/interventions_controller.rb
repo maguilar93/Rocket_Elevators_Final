@@ -1,4 +1,7 @@
 class InterventionsController < InheritedResources::Base
+  before_action :authenticate_employee!
+  
+
   def new
     @intervention = Intervention.new
   end
@@ -6,14 +9,14 @@ class InterventionsController < InheritedResources::Base
   def create
     @intervention = Intervention.new(intervention_params)
 
-    #Create ticket on Zendesk from intervention Form
-    # ZendeskAPI::Ticket.create!(@client, 
-    # :subject => "#{@intervention.Full_Name} from #{@intervention.Company_Name}",
-    # :requester => {"name": @intervention.Email},
-    # :comment => { :value => 
-    #   "The contact #{@intervention.Full_Name} from company #{@intervention.Company_Name} can be reached at email #{@intervention.Email} and at phone number #{@intervention.Phone_Number}. Building type selected is #{@intervention.Building_Type} with product line #{@intervention.Product_Grade}. Number of suggested elevator is #{@intervention.Nb_Ele_Suggested} and total price is #{@intervention.Final_Price}."},
-    # :type => "task",  
-    # :priority => "urgent")
+    # Create ticket on Zendesk from intervention Form
+    ZendeskAPI::Ticket.create!(@client, 
+    :subject => "#{@intervention.author} from #{@intervention.customer_id}",
+    :requester => {"name": @intervention.author},
+    :comment => { :value => 
+      "The contact #{@intervention.author} from company id: #{@intervention.customer_id} need an intervention building id: #{@intervention.building_id}, battery id: #{@intervention.battery_id}, column id: #{@intervention.column_id}, elevator id: #{@intervention.elevator_id}."},
+    :type => "task",  
+    :priority => "urgent")
 
     #render json: @intervention #test when submit button form
     if @intervention.save
