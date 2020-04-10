@@ -24,6 +24,43 @@ class InterventionsController < InheritedResources::Base
       redirect_to action:"new"
     end
   end
+  
+  # if params[:customer_id].present?
+  #   @tasks = Project.find(params[:customer_id]).tasks
+  # else
+  #     @tasks = Task.all
+  # end
+  # if request.xhr?
+  #     respond_to do |format|
+  #         format.json {
+  #             render json: {tasks: @tasks}
+  #         }
+  #     end
+  # end
+
+  def get_buildings
+    customer_id = params[:customer_id]
+    buildings = Building.where(customer_id: customer_id)
+    render json: buildings
+  end
+
+  def get_batteries
+    building_id = params[:building_id]
+    batteries = Battery.where(building_id: building_id)
+    render json: batteries
+  end
+
+  def get_columns
+    battery_id = params[:battery_id]
+    columns = Column.where(battery_id: battery_id)
+    render json: columns
+  end
+
+  def get_elevators
+    column_id = params[:column_id]
+    elevators = Elevator.where(column_id: column_id)
+    render json: elevators
+  end
 
   private
 

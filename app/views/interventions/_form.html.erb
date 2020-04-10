@@ -6,78 +6,50 @@
 		</header>
 		<div class="row">
 			<!-- FORM -->
-			<div class="col-md-8 col-sm-8">
+			<div class="col-md-12 col-sm-12">
 
           <div class="row">
-            <div class="control-group">
-              <div id="author_i">
+            <div class="col-md-6">
                 <%= label_tag(:author, "*Author:") %>
-                <div id="author_s">
-                  <%= collection_select(:intervention, :author, Employee.order(:last_name), :id, :first_name, {prompt: 'None'} ) %>
-                </div>
-              </div> 
+                <%= collection_select(:intervention, :author, Employee.order(:last_name), :id, :first_name, {prompt: 'None'}, {id: "author_id"} ) %>
             </div> 
-          </div>
-
+          </div> 
 
           <div class="row">
-            <div class="control-group">
-              <div id="customer_i">
+            <div class="col-md-4">
                 <%= label_tag(:customer_id, "*Customer:") %>
-                <div id="customer_s">
-                  <%= collection_select(:intervention, :customer_id, Customer.order(:company_name), :id, :company_name, {prompt: 'Please select'} ) %>
-                </div>
-              </div> 
+                <%= collection_select(:intervention, :customer_id, Customer.order(:company_name), :id, :company_name, {prompt: 'Please select'}, {id: "customer_id"}) %>
             </div> 
-          </div>
 
-          <div class="row">
-            <div class="control-group">
-              <div class="building_i">
+            <div class="col-md-4">
                 <%= label_tag(:building_id, "*Building:") %>
-                <%= collection_select(:intervention, :building_id, Building.order(:id), :id, :id, {prompt: 'Please select'} ) %>
-              </div> 
+                <%= collection_select(:intervention, :building_id, Building.order(:id), :id, :id, {prompt: 'Please select'}, {id: "building_id"} ) %>
             </div> 
-          </div>
+
+            <div class="col-md-4">
+              <%= label_tag(:battery_id, "*Battery:") %>
+              <%= collection_select(:intervention, :battery_id, Battery.order(:battery_type), :id, :id, {prompt: 'None'}, {id: "battery_id"} ) %>
+            </div> 
+          </div> 
 
           <div class="row">
-            <div class="control-group">
-              <div class="battery_i">
-                <%= label_tag(:battery_id, "*Battery:") %>
-                <%= collection_select(:intervention, :battery_id, Battery.order(:battery_type), :id, :id, {prompt: 'None'} ) %>
-              </div> 
+            <div class="col-md-4">
+              <%= label_tag(:column_id, "*Column:") %>
+              <%= collection_select(:intervention, :column_id, Column.order(:id), :id, :id, {prompt: 'None'}, {id: "column_id"} ) %>
             </div> 
-          </div>
 
-          <div class="row">
-            <div class="control-group">
-              <div class="column_i">
-                <%= label_tag(:column_id, "*Column:") %>
-                <%= collection_select(:intervention, :column_id, Column.order(:id), :id, :id, {prompt: 'None'} ) %>
-              </div> 
+            <div class="col-md-4">
+              <%= label_tag(:elevator_id, "*Elevators:") %>
+              <%= collection_select(:intervention, :elevator_id, Elevator.order(:serial_number), :id, :serial_number, {prompt: 'Please select'}, {id: "elevator_id"}) %>
             </div> 
-          </div>
 
-          <div class="row">
-            <div class="control-group">
-              <div class="elevator_i">
-                <%= label_tag(:elevator_id, "*Elevators:") %>
-                <%= collection_select(:intervention, :elevator_id, Elevator.order(:serial_number), :id, :serial_number, {prompt: 'Please select'} ) %>
-              </div> 
-            </div> 
-          </div>
-
-          <div class="row">
-            <div class="control-group">
-              <div class="description_i">
-                <%= label_tag(:report, "*Description:") %>
-                <%= text_field_tag(:report) %>
-              </div> 
+            <div class="col-md-4">
+              <%= label_tag(:report, "*Description:") %>
+              <%= text_field_tag(:report) %>
             </div> 
           </div>
         
            <div class="row">
-            <div class="control-group">
               <div class="submit_i">
                 <%= submit_tag("Submit") %>
               </div> 
@@ -89,6 +61,123 @@
 		</div>
 	</div>
 </section>
+<script>
+$(document).ready(function(){
+    console.log("Hello");
+    $("#building_id").prop("disabled", true);
+    $("#battery_id").prop("disabled", true);
+    $("#column_id").prop("disabled", true);
+    $("#elevator_id").prop("disabled", true);
+
+    // get buildings after selecting customer
+    $("#customer_id").change(function(){
+      var customer = $(this).val();
+      if(customer == ''){
+        $("#building_id").prop("disabled", true);
+      }else{
+        $("#building_id").prop("disabled", false);
+      }
+      $.ajax({
+        url: "/interventions/get_buildings",
+        method: "GET",  
+        dataType: "json",
+        data: {customer_id: customer},
+        error: function (xhr, status, error) {
+            console.error('AJAX Error: ' + status + error);
+        },
+        success: function (response) {
+            console.log(response);
+            var buildingInfo = $("#building_id")
+            buildingInfo.html("<option/>", {text: "None"})
+            buildingInfo.append($.map(response, function(x){
+              return $("<option>", {id: x.id, text: x.id})
+            }));
+        }
+      });
+    });
 
 
-<%=javascript_tag "$('#author_i').prop('disabled', true)" %>
+    // get batteries after selecting building
+    $("#building_id").change(function(){
+      var building = $(this).val();
+      if(building == ''){
+        $("#battery_id").prop("disabled", true);
+      }else{
+        $("#battery_id").prop("disabled", false);
+      }
+      $.ajax({
+        url: "/interventions/get_batteries",
+        method: "GET",  
+        dataType: "json",
+        data: {building_id: building},
+        error: function (xhr, status, error) {
+            console.error('AJAX Error: ' + status + error);
+        },
+        success: function (response) {
+            console.log(response);
+            var batteryInfo = $("#battery_id")
+            batteryInfo.html("<option/>", {text: "None"})
+            batteryInfo.append($.map(response, function(x){
+              return $("<option>", {id: x.id, text: x.id})
+            }));
+        }
+      });
+    });
+
+    // get columns after selecting battery
+    $("#battery_id").change(function(){
+      var battery = $(this).val();
+      if(battery == ''){
+        $("#column_id").prop("disabled", true);
+      }else{
+        $("#column_id").prop("disabled", false);
+      }
+      $.ajax({
+        url: "/interventions/get_columns",
+        method: "GET",  
+        dataType: "json",
+        data: {battery_id: battery},
+        error: function (xhr, status, error) {
+            console.error('AJAX Error: ' + status + error);
+        },
+        success: function(response) {
+            console.log(response);
+            var columnInfo = $("#column_id")
+            columnInfo.html("<option/>", {text: "None"})
+            columnInfo.append($.map(response, function(x){
+              return $("<option>", {id: x.id, text: x.id})
+            }));
+        }
+      });
+    });
+
+    // get elevators after selecting columns
+     $("#column_id").change(function(){
+      var column = $(this).val();
+      if(column == ''){
+        $("#elevator_id").prop("disabled", true);
+      }else{
+        $("#elevator_id").prop("disabled", false);
+      }
+      $.ajax({
+        url: "/interventions/get_elevators",
+        method: "GET",  
+        dataType: "json",
+        data: {column_id: column},
+        error: function (xhr, status, error) {
+            console.error('AJAX Error: ' + status + error);
+        },
+        success: function (response) {
+            console.log(response);
+            var elevatorsInfo = $("#elevator_id")
+            elevatorsInfo.html("<option/>", {text: "None"})
+            elevatorsInfo.append($.map(response, function(x){
+              return $("<option>", {serial_number: x.serial_number, text: x.serial_number})
+            }));
+        }
+      });
+    });
+})
+
+</script>
+

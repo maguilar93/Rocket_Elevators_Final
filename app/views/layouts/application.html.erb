@@ -79,6 +79,15 @@
                 <li><!-- CLIENTS -->
                   <%= link_to 'CLIENTS', index_path(anchor: "customers") %>
                 </li>
+                <li class="dropdown"><!-- INTERVENTION -->  
+                  <%= link_to 'INTERVENTION' %>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <%= link_to 'New Intervention', new_intervention_path %>
+                    </li>
+                  </ul>
+                </li>
+
                 <li><!-- CONTACT -->
                   <%= link_to 'CONTACT', index_path(anchor: "contact") %>
                 </li>

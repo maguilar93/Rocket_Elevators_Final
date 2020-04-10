@@ -1,7 +1,7 @@
-var author = document.getElementsByClassName("author_i")[0];
-var customer = document.getElementsByClassName("customer_i")[0];
-var customerData = document.getElementsByClassName("customer_s")[0];
-var building = document.getElementsByClassName("building_i")[0];
+// var author = document.getElementsByClassName("author_i")[0];
+// var customer = document.getElementsByClassName("customer_i")[0];
+// var customerData = document.getElementsByClassName("customer_s")[0];
+// var building = document.getElementsByClassName("building_i")[0];
 var battery = document.getElementsByClassName("battery_i")[0];
 var column = document.getElementsByClassName("column_i")[0];
 var elevator = document.getElementsByClassName("elevator_i")[0];
@@ -16,37 +16,41 @@ var submit = document.getElementsByClassName("submit_i")[0];
 // description.style.display = "none";
 
 
-// building.style.display = "none"; // second dropdown is disable while first dropdown is empty
-// function loadBuilding() {
-//     if building.
-// }
+$(document).ready(function(){
+    console.log("Hello");
+    $("#building_s").hide(); // second dropdown is disable while first dropdown is empty
 
-// function loadBuilding() {
-//   	var customerDatav = customerData.val();
-//   	if (customerDatav == ''){
-//   		building.style.display = "none";
-//   	} else {
-//   		building.style.display = "inline-block";
-//   	}
-  	// $.ajax({
-	//     url: "/tasks",
-	//     method: "GET",  
-	//     dataType: "json",
-	//     data: {customer: customer},
-	//     error: function (xhr, status, error) {
-	//       	console.error('AJAX Error: ' + status + error);
-	//     },
-	//     success: function (response) {
-	//       	console.log(response);
-	//       	var tasks = response["tasks"];
-	//       	building.empty();
+    $("#customer_s").change(function(){
+        var project = $(this).val();
+        if(project == ''){
+            $("#building_s").hide();
+        }else{
+            $("#building_s").show();
+        }
+        $.ajax({
+          url: "/buildings",
+          method: "GET",  
+          dataType: "json",
+          data: {project: project},
+          error: function (xhr, status, error) {
+                console.error('AJAX Error: ' + status + error);
+          },
+          success: function (response) {
+                console.log(response);
+                var buildings = response["buildings"];
+                $("#building_s").empty();
+  
+                $("#building_s").append('<option>Select Task</option>');
+                for(var i = 0; i < buildings.length; i++){
+                    $("#building_s").append('<option value="' + buildings[i]["id"] + '">' +buildings[i]["name"] + '</option>');
+                }
+          }
+        });
+  });
 
-	//       	building.append('<option>Select Task</option>');
-	//       	for(var i = 0; i < tasks.length; i++){
-	//       		building.append('<option value="' + tasks[i]["id"] + '">' +tasks[i]["name"] + '</option>');
-	//       	}
-	//     }
-  	// });
-// };
+})
 
-loadBuilding();
+// building.prop("disabled", true); // second dropdown is disable while first dropdown is empty
+
+
+

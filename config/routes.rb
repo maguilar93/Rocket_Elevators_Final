@@ -2,7 +2,15 @@ Rails.application.routes.draw do
   
  
 
-  resources :interventions
+  resources :interventions do 
+    collection do
+      get :get_buildings
+      get :get_batteries
+      get :get_columns
+      get :get_elevators
+    end
+  end
+
   devise_for :users
   devise_for :employees, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -21,7 +29,7 @@ Rails.application.routes.draw do
   get 'sign_up' => 'users#sign_up'
   get 'sign_in' => 'users#sign_in'
   get 'leads' => 'leads#new'
-  get 'intervention' => 'intervention#new'
+  get 'interv' => 'interventions#new'
 
 
   get 'welcome' => 'watson#welcome'
