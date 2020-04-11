@@ -1,17 +1,18 @@
 # ROCKET ELEVATORS INFORMATION SYSTEM
 
 Ruby On Rails project for RocketElevators.  
-Make the interactive website with the original static website of "Jackie" and link it to a database to store "User" and "Employee" login data and the quote data in separate tables.  
-The website have a backoffice that employee can login to access the data from quote.
+The website have a backoffice that employee can login to access the data.
 
-###### New Update Week 7 | Odyssey :   March 27th 2020 ######
-  Added 7 API's like ZenDesk, Twilio, IBM-Watson text-to-speech, SendGrid, DropBox, Google-Maps and Slack.
+###### New Update Consolidation Week | Odyssey :   March 27th 2020 ######
+  Added ZenDesk and an Intervention page.
   
   The following are instructions how to test out the features of each API.
   When asked to provide Email and password to access the admin dashboard use one of the following combinations.
   
-  # Website URL : http://projectrocketelevators.com/
-  # Access to admin panel :http://projectrocketelevators.com/admin
+  # Website URL : http://rocketelevators.online/
+  # Access to admin panel : http://rocketelevators.online/admin
+  # API URL : https://rockelevapi.azurewebsites.net/api
+  # API Repository : https://github.com/maguilar93/Restful_API_Foundation
   
 ## Back Office Admin Logins
   - admin@example.com , password
@@ -26,30 +27,6 @@ The website have a backoffice that employee can login to access the data from qu
 
 # ZenDesk
   In order to receive a message from Zendesk, you will have to send a Contact Us request request via our Homepage. It is also possible     if you fill up a quote request via our Get a Quote page. These messages will be sent to the Sales Representative, in this case,         Patrick Thibault.
-  
-# Twilio
-  In order to receive a message from Twilio, you will have to update the status of the elevator. In order to do this, you need to access   Addresses > Customers > Buildings > Batteries > Columns > Elevators. you can do that through the admin link:                             http://projectrocketelevators.com/admin .
-  You can then edit the elevator’s status to “Intervention”. This will send a message to Patrick Thibault’s mobile.
-  
-# IBM-Watson :
-  The IBM Watson works by gathering the text data, then sending it to the IBM Watson service, and it receives an audio file back which     it plays automatically right after.
-
-  To create a new summary the employee has to press the “Summary button “ in the back office, under the tab dashboard. Once the button     is pressed the file will play itself right after. To listen to the summary again you can press the play button.
-
-  Everytime a change is made it is suggested to press the summary button to get a new briefing regarding the questions needed answering.
-  
-# DropBox
-# Google-Maps
-  Once in the admin panel, please press the "Geoloclisation all customers" tab at the top. This will take you to a page where you can     see all the customers on a single map. When you press on a dropped pin on the map you will be able to see the details of those           buildings.
-  
-# Slack
-  to change the status of a specific elevator, go to the Adresses tab select the adress you wanna view, then if the owner of the adress   is a registered customer, you will be able to acess the customer tab, inside customers you can select the view option on the customer   desired then inside this customer's tab you can select the "buildings" option.
-  
-  Inside the Buildings tab you can select the "View" option on the desired building inside the desired building tab, you can then select   the "Batteries" option on the far right. Inside the Batteries Tab, you can then select the "view" option on the desired Battery,         Inside the Battery infos, you can See on the far right that there is now an "column" option, press it, Inside the Column tab you can     select the "view" option on the desired column. Inside the desired column's info tab you can now see an Elevator Option on the far       right, Press it. Inside the Elevators tab you can then press "Edit" on the Desired Elevator this will bring you to a form with           multiple infos about the Elevator, what we're looking for is the "Status" Status is the 4th input field,
-  there are 2 status "Intervention" and "Active", if you change the status of one of the elevators manually, our elevator Operator will   receive a text message containing the Details of the elevator in question. Our "Slack" bot will also alert in the                       "elevator_operations" channel that the elevator in question and all its details, has changed the state of the elevator.
-  
-# SendGrid
-  In order to receive a message from SendGrid, you will have to send a Contact Us request request via our Homepage. Please make sure       that your email is valid, since you should receive a thank you email right after you click submit.
 
 ## Configuration
   - Ruby version : 2.6.5  
@@ -58,18 +35,7 @@ The website have a backoffice that employee can login to access the data from qu
   - Bundler version : 1.17.3
 
 ## Link to the video
-
-
-## Collaborators
-  - Maria - Collaborator -maguilar93
-
-  - Kiril - Collaborator -kirilkk9
-
-  - Reda - Team Leader -RdaBouazzaoui
-
-  - Afandy - Collaborator -afandyng
-  
-  - Alexis - Collaborator -Ticass
+https://youtu.be/-woJT9rKFmI
 
 
 ## List of required Gems
