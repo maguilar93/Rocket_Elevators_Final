@@ -9,13 +9,21 @@ class InterventionsController < InheritedResources::Base
   def create
     @intervention = Intervention.new(intervention_params)
 
+
     # Create ticket on Zendesk from intervention Form
     ZendeskAPI::Ticket.create!(@client, 
-    :subject => "#{@intervention.author} from #{@intervention.customer_id}",
+    :subject => "Intervention for company id: #{@intervention.customer_id}",
     :requester => {"name": @intervention.author},
     :comment => { :value => 
-      "The contact #{@intervention.author} from company id: #{@intervention.customer_id} need an intervention building id: #{@intervention.building_id}, battery id: #{@intervention.battery_id}, column id: #{@intervention.column_id}, elevator id: #{@intervention.elevator_id}."},
-    :type => "task",  
+      # "The contact #{@intervention.author} from company id: #{@intervention.customer_id} need an intervention building id: #{@intervention.building_id}, battery id: #{@intervention.battery_id}, column id: #{@intervention.column_id}, elevator id: #{@intervention.elevator_id}."},
+      "A ticket has been opened with the following informations: 
+      Building :  #{@intervention.building_id} \n 
+      Battery :  #{@intervention.battery_id} \n
+      Column : #{@intervention.column_id} \n
+      Elevator : #{@intervention.elevator_id} \n
+      Employee : #{@intervention.author} \n 
+      Report :  #{@intervention.report}." },
+    :type => "problem",  
     :priority => "urgent")
 
     #render json: @intervention #test when submit button form

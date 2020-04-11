@@ -7,12 +7,12 @@ class CreateInterventions < ActiveRecord::Migration[5.2]
       t.integer :building_id 
       t.integer :battery_id, :default => "None"
       t.integer :column_id, :default => "None"
-      t.integer :elevator_id, :default => "None"
+      t.string :elevator_id, :default => "None"
       t.integer :employee_id
       t.datetime :start_date_interv
       t.datetime :end_date_interv
       t.string :result, :default => "Incomplete"
-      t.string :report, :null => false, :default => ""
+      t.string :report
       t.string :status, :default => "Pending"
       t.timestamps
     end

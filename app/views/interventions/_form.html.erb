@@ -11,41 +11,44 @@
           <div class="row">
             <div class="col-md-6">
                 <%= label_tag(:author, "*Author:") %>
-                <%= collection_select(:intervention, :author, Employee.order(:last_name), :id, :first_name, {:include_blank => "None", :selected_value => :first_name || nil }, {id: "author_id"} ) %>
+                <%= collection_select(:intervention, :author, Employee.order(:last_name), :id, :first_name, {:include_blank => "None"}, {id: "author_id"} ) %>
             </div> 
           </div> 
 
           <div class="row">
             <div class="col-md-4">
-                <%= label_tag(:customer_id, "*Customer:") %>
+                <%= label_tag(:customer_id, "*Customer Name:") %>
                 <%= collection_select(:intervention, :customer_id, Customer.order(:company_name), :id, :company_name, {prompt: 'Please select'}, {id: "customer_id"}) %>
             </div> 
 
             <div class="col-md-4">
-                <%= label_tag(:building_id, "*Building:") %>
+                <%= label_tag(:building_id, "*Building ID:") %>
                 <%= collection_select(:intervention, :building_id, Building.order(:id), :id, :id, {prompt: 'Please select'}, {id: "building_id"} ) %>
             </div> 
 
             <div class="col-md-4">
-              <%= label_tag(:battery_id, "*Battery:") %>
+              <%= label_tag(:battery_id, "*Battery ID:") %>
               <%= collection_select(:intervention, :battery_id, Battery.order(:battery_type), :id, :id, {:include_blank => "None", :selected_value => :id || nil }, {id: "battery_id"} ) %>
             </div> 
           </div> 
 
           <div class="row">
             <div class="col-md-4">
-              <%= label_tag(:column_id, "*Column:") %>
+              <%= label_tag(:column_id, "*Column ID:") %>
               <%= collection_select(:intervention, :column_id, Column.order(:id), :id, :id, {:include_blank => "None", :selected_value => :id || nil }, {id: "column_id"} ) %>
             </div> 
 
             <div class="col-md-4">
-              <%= label_tag(:elevator_id, "*Elevators:") %>
-              <%= collection_select(:intervention, :elevator_id, Elevator.order(:serial_number), :id, :serial_number, {:include_blank => "None", :selected_value => :serial_number || nil }, {id: "elevator_id"}) %>
+              <%= label_tag(:elevator_id, "*Elevators ID:") %>
+              <%= collection_select(:intervention, :elevator_id, Elevator.order(:serial_number), :id, :serial_number, {:include_blank => "None"}, {id: "elevator_id"}) %>
             </div> 
+          </div>
 
+          <div class="row">
             <div class="col-md-4">
               <%= label_tag(:report, "*Description:") %>
-              <%= text_field_tag(:report) %>
+              <!-- <%= text_field_tag(:report) %> -->
+              <textarea id="report" rows="7" cols="100" name="intervention[report]"></textarea>
             </div> 
           </div>
         
@@ -172,7 +175,7 @@ $(document).ready(function(){
             var elevatorsInfo = $("#elevator_id")
             elevatorsInfo.html("<option/>", {text: "None"})
             elevatorsInfo.append($.map(response, function(x){
-              return $("<option>", {serial_number: x.serial_number, text: x.serial_number})
+              return $("<option>", {serial_number: x.id, text: x.id})
             }));
         }
       });

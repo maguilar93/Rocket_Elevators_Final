@@ -158,12 +158,12 @@ ActiveRecord::Schema.define(version: 2020_04_07_211447) do
     t.integer "building_id"
     t.integer "battery_id", default: 0
     t.integer "column_id", default: 0
-    t.integer "elevator_id", default: 0
+    t.string "elevator_id", default: "None"
     t.integer "employee_id"
     t.datetime "start_date_interv"
     t.datetime "end_date_interv"
     t.string "result", default: "Incomplete"
-    t.string "report", default: "", null: false
+    t.string "report"
     t.string "status", default: "Pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

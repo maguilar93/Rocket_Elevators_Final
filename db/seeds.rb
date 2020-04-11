@@ -9,8 +9,8 @@ Employee.create!(first_name: 'admin', last_name: 'istrator', title: 'A', email: 
 # Employee.create!(first_name: 'admin', last_name: 'istrator', title: 'A', email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 jack = Employee.create!(first_name: 'jackie', last_name: 'lai', title: 'B', email: 'jack@q', password: 'testing', password_confirmation: 'testing') 
 
-Employee.create!(first_name: 'Mathieu', last_name: 'Houde', title: 'engineer', email: 'mathieu.houde@codeboxx.biz', password: '123456', password_confirmation: '123456') 
-Employee.create!(first_name: 'Patrick', last_name: 'Thibault', title: 'coach', email: 'tiboclan@gmail.com', password: '123456', password_confirmation: '123456') 
+mathieu = Employee.create!(first_name: 'Mathieu', last_name: 'Houde', title: 'engineer', email: 'mathieu.houde@codeboxx.biz', password: '123456', password_confirmation: '123456') 
+patrick = Employee.create!(first_name: 'Patrick', last_name: 'Thibault', title: 'coach', email: 'tiboclan@gmail.com', password: '123456', password_confirmation: '123456') 
 Employee.create!(first_name: 'Philippe', last_name: 'Motillon', title: 'coach', email: 'philippe.motillon@keyrus.ca', password: '123456', password_confirmation: '123456') 
 Employee.create!(first_name: 'Khalid', last_name: 'Djado', title: 'coach', email: 'kdjado@gmail.com', password: '123456', password_confirmation: '123456') 
 Employee.create!(first_name: 'Antoine', last_name: 'Deblonde', title: 'coach', email: 'antoine.deblonde@keyrus.ca', password: '123456', password_confirmation: '123456') 
@@ -20,6 +20,7 @@ Employee.create!(first_name: 'Ibrahim', last_name: 'Mahamane', title: 'coach', e
 
 require 'faker'
 require 'date'
+
 
 10.times do |n|
     nameF = Faker::Name.name
@@ -211,7 +212,7 @@ require 'date'
     end
 end
 
-100.times do |n|
+50.times do |n|
 
     typeF = ["Billing", "Shipping", "Home", "Business"].sample
     statusF = ["active", "inactive"].sample
@@ -333,37 +334,35 @@ end
             )
             rand(1..6).times do |n|
                 certificateF = Faker::IDNumber.valid
-                Elevator.create!(
-                    column_id:  fake_column.id,
-                    serial_number: Faker::IDNumber.south_african_id_number,
-                    model: ["Standard","Premium","Excellium"].sample,
-                    elevator_type: buildingtypeF,
-                    status: "active",
-                    date_commision: c,
-                    date_last_inspect: c,
-                    certificate_inspect: certificateF,
-                    info: notesF,
-                    notes: notesF,
-                    # created_at: c,
-                    # created_at: c
-                )
             end
-        # fake_intervention = Intervention.create!(
-        #     author: fake_customer.company_name,
-        #     customer_id: fake_customer.id,
-        #     building_id: fake_building.id,
-        #     battery_id: fake_battery.id,
-        #     column_id: fake_column.id,
-        #     elevator_id: Elevator.id,
-        #     employee_id: jack.id,
-        #     start_date_interv: c,
-        #     end_date_interv: c,
-        #     result: ["Success","Failure","Incomplete"].sample,
-        #     report: Faker::Lorem.sentence(word_count: 3, supplemental: true, random_words_to_add: 3),
-        #     status:  ["Pending","InProgress","Interrupted","Resumed","Complete"].sample,
-        #     created_at: c,
-        #     updated_at: c,
-        # )
+        fake_elevator = Elevator.create!(
+                column_id:  fake_column.id,
+                serial_number: Faker::IDNumber.south_african_id_number,
+                model: ["Standard","Premium","Excellium"].sample,
+                elevator_type: buildingtypeF,
+                status: "active",
+                date_commision: c,
+                date_last_inspect: c,
+                certificate_inspect: certificateF,
+                info: notesF,
+                notes: notesF,
+                # created_at: c,
+                # created_at: c
+            )
+        fake_intervention = Intervention.create!(
+            author: mathieu.id,
+            customer_id: fake_customer.id,
+            building_id: fake_building.id,
+            battery_id: fake_battery.id,
+            column_id: fake_column.id,
+            elevator_id: fake_elevator.id,
+            employee_id: patrick.id,
+            result: ["Success","Failure","Incomplete"].sample,
+            report: Faker::Lorem.sentence(word_count: 3, supplemental: true, random_words_to_add: 3),
+            status:  ["Pending","InProgress","Interrupted","Resumed","Complete"].sample,
+            created_at: c,
+            updated_at: c,
+        )
         end
     end
 end
