@@ -116,3 +116,6 @@ gem 'figaro'
 
 # Form in Active-Admin gem
 gem 'formtastic', '~> 3.0'
+
+# Recaptcha
+gem "recaptcha"

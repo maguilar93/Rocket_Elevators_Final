@@ -1,6 +1,8 @@
 <h1>New Intervention</h1>
 <%= form_for @intervention, url:{action:"create"} do |f| %>
     <%= render 'form', intervention: @intervention %>
+    <%= recaptcha_tags %>
 <% end %>
 <%= link_to 'Back', interventions_path %>
+
  

@@ -27,7 +27,7 @@ class InterventionsController < InheritedResources::Base
     :priority => "urgent")
 
     #render json: @intervention #test when submit button form
-    if @intervention.save
+    if verify_recaptcha(model: @intervention) && @intervention.save
       flash[:notice] = "Add new intervention successfull "
       redirect_to action:"new"
     else
