@@ -5,16 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Employee.create!(first_name: 'admin', last_name: 'istrator', title: 'A', email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 # Employee.create!(first_name: 'admin', last_name: 'istrator', title: 'A', email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 jack = Employee.create!(first_name: 'jackie', last_name: 'lai', title: 'B', email: 'jack@q', password: 'testing', password_confirmation: 'testing') 
 
-mathieu = Employee.create!(first_name: 'Mathieu', last_name: 'Houde', title: 'engineer', email: 'mathieu.houde@codeboxx.biz', password: '123456', password_confirmation: '123456') 
-patrick = Employee.create!(first_name: 'Patrick', last_name: 'Thibault', title: 'coach', email: 'tiboclan@gmail.com', password: '123456', password_confirmation: '123456') 
-Employee.create!(first_name: 'Philippe', last_name: 'Motillon', title: 'coach', email: 'philippe.motillon@keyrus.ca', password: '123456', password_confirmation: '123456') 
-Employee.create!(first_name: 'Khalid', last_name: 'Djado', title: 'coach', email: 'kdjado@gmail.com', password: '123456', password_confirmation: '123456') 
-Employee.create!(first_name: 'Antoine', last_name: 'Deblonde', title: 'coach', email: 'antoine.deblonde@keyrus.ca', password: '123456', password_confirmation: '123456') 
-Employee.create!(first_name: 'Ibrahim', last_name: 'Mahamane', title: 'coach', email: 'imahamaneissa@gmail.com', password: '123456', password_confirmation: '123456') 
+mathieu = Employee.create!(first_name: 'Mathieu', last_name: 'Houde', title: 'engineer', email: 'mathieu.houde@codeboxx.biz', password: 'HoudeM#123', password_confirmation: 'HoudeM#123') 
+patrick = Employee.create!(first_name: 'Patrick', last_name: 'Thibault', title: 'coach', email: 'tiboclan@gmail.com', password: 'ThibaultP#4174', password_confirmation: 'ThibaultP#4174') 
+Employee.create!(first_name: 'Philippe', last_name: 'Motillon', title: 'coach', email: 'philippe.motillon@keyrus.ca', password: 'MotillonP8454!', password_confirmation: 'MotillonP8454!') 
+Employee.create!(first_name: 'Khalid', last_name: 'Djado', title: 'coach', email: 'kdjado@gmail.com', password: 'DjadoK/854', password_confirmation: 'DjadoK/854') 
+Employee.create!(first_name: 'Antoine', last_name: 'Deblonde', title: 'coach', email: 'antoine.deblonde@keyrus.ca', password: 'DeblondeA2345&', password_confirmation: 'DeblondeA2345&') 
+Employee.create!(first_name: 'Ibrahim', last_name: 'Mahamane', title: 'coach', email: 'imahamaneissa@gmail.com', password: 'MahamaneI$2378', password_confirmation: 'MahamaneI$2378') 
 
 
 

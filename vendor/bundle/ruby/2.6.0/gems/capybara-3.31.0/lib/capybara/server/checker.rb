@@ -37,7 +37,7 @@ module Capybara
       end
 
       def ssl_options
-        { use_ssl: true, verify_mode: OpenSSL::SSL::VERIFY_NONE }
+        { use_ssl: true, verify_mode: OpenSSL::SSL::VERIFY_PEER }
       end
     end
   end

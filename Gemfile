@@ -119,3 +119,6 @@ gem 'formtastic', '~> 3.0'
 
 # Recaptcha
 gem "recaptcha"
+
+#strongpassword 
+gem 'strong_password', '~> 0.0.8'

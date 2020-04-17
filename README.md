@@ -15,15 +15,13 @@ The website have a backoffice that employee can login to access the data.
   # API Repository : https://github.com/maguilar93/Restful_API_Foundation
   
 ## Back Office Admin Logins
-  - admin@example.com , password
-  - test@test , 123123
 
-- Mathieu Houde | coach | mathieu.houde@codeboxx.biz | password: 123456
-- Patrick Thibault | coach | tiboclan@gmail.com | password: 123456
-- Philippe Motillon | coach | philippe.motillon@keyrus.ca | password: 123456
-- Khalid Kjado | coach | kdjado@gmail.com | password: 123456
-- Antoine Deblonde | coach | antoine.deblonde@keyrus.ca | password: 123456
-- Ibrahim Mahamane | coach | imahamaneissa@gmail.com | password: 123456
+- Mathieu Houde | coach | mathieu.houde@codeboxx.biz | password: HoudeM#123
+- Patrick Thibault | coach | tiboclan@gmail.com | password: ThibaultP#4174
+- Philippe Motillon | coach | philippe.motillon@keyrus.ca | password: MotillonP8454!
+- Khalid Kjado | coach | kdjado@gmail.com | password: DjadoK/854
+- Antoine Deblonde | coach | antoine.deblonde@keyrus.ca | password: DeblondeA2345&
+- Ibrahim Mahamane | coach | imahamaneissa@gmail.com | password: MahamaneI$2378
 
 # ZenDesk
   In order to receive a message from Zendesk, you will have to send a Contact Us request request via our Homepage. It is also possible     if you fill up a quote request via our Get a Quote page. These messages will be sent to the Sales Representative, in this case,         Patrick Thibault.

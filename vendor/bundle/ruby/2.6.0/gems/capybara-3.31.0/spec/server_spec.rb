@@ -117,7 +117,7 @@ RSpec.describe Capybara::Server do
         expect(e.is_a?(EOFError) || e.is_a?(Net::ReadTimeout)).to be true
       end)
 
-      res = Net::HTTP.start(server.host, server.port, use_ssl: true, verify_mode: OpenSSL::SSL::VERIFY_NONE) do |https|
+      res = Net::HTTP.start(server.host, server.port, use_ssl: true, verify_mode: OpenSSL::SSL::VERIFY_PEER) do |https|
         https.get('/')
       end
 
