@@ -118,7 +118,7 @@ gem 'figaro'
 gem 'formtastic', '~> 3.0'
 
 # Recaptcha
-gem "recaptcha"
+gem "recaptcha", :require => 'recaptcha/rails'
 
 #strongpassword 
 gem 'strong_password', '~> 0.0.8'
