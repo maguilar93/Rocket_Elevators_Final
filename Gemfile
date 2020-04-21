@@ -82,6 +82,7 @@ group :development do
   gem 'rvm1-capistrano3', require: false
   gem 'capistrano3-puma'
   gem 'capistrano-rake', require: false
+  gem 'rspec-rails', '~> 4.0.0'
 end
 
 group :test do
@@ -122,3 +123,5 @@ gem "recaptcha", :require => 'recaptcha/rails'
 
 #strongpassword 
 gem 'strong_password', '~> 0.0.8'
+
+gem 'webmock'
