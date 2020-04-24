@@ -350,6 +350,10 @@ GEM
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
+    rspec (3.9.0)
+      rspec-core (~> 3.9.0)
+      rspec-expectations (~> 3.9.0)
+      rspec-mocks (~> 3.9.0)
     rspec-core (3.9.1)
       rspec-support (~> 3.9.1)
     rspec-expectations (3.9.1)
@@ -513,6 +517,7 @@ DEPENDENCIES
   rails-assets-datatables!
   rails-assets-jquery!
   recaptcha
+  rspec
   rspec-rails (~> 4.0.0)
   rvm1-capistrano3
   sass-rails (~> 5.0)

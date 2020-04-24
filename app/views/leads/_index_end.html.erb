@@ -13,6 +13,9 @@
 				</div>
 			</section>
 			<!-- /Overview -->
+			<% require 'elevator_media.rb' %>
+
+			<%= ElevatorMedia::Streamer.getContent() %>
 
 	<!-- JAVASCRIPT FILES -->
 	<script>var plugin_path = 'assets/plugins/';</script>
