@@ -1,13 +1,14 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.12.0"
+server '3.17.68.197', port: 22, roles: [:web, :app, :db], primary: true
 
 
 before 'deploy', 'rvm1:install:ruby'
 set :rvm_map_bins, [ 'rake', 'gem', 'bundle', 'ruby', 'puma', 'pumactl' ]
 set :application, "Maria_Aguilar"
-set :repo_url, "https://github.com/maguilar93/Rocket-Elevator-Foundation.git"
+set :repo_url, "https://github.com/maguilar93/Rocket_Elevators_Final.git"
+set :user, 'maguilar93'
 set :branch, :master
-set :deploy_to, '/home/deploy/contactbook'
+set :deploy_to, '/var/www/Rocket_Elevators_Final'
 set :pty, true
 set :linked_files, %w{config/database.yml config/application.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
