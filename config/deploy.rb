@@ -4,7 +4,7 @@ server '3.17.68.197', port: 22, roles: [:web, :app, :db], primary: true
 
 before 'deploy', 'rvm1:install:ruby'
 set :rvm_map_bins, [ 'rake', 'gem', 'bundle', 'ruby', 'puma', 'pumactl' ]
-set :application, "Maria_Aguilar"
+set :application, "Rocket_Elevators_Final"
 set :repo_url, "https://github.com/maguilar93/Rocket_Elevators_Final.git"
 set :user, 'maguilar93'
 set :branch, :master
