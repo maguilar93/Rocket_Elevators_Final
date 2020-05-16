@@ -169,18 +169,18 @@ module Rails
     end
 
     # Returns the application's KeyGenerator
-    def key_generator
-      # number of iterations selected based on consultation with the google security
-      # team. Details at https://github.com/rails/rails/pull/6952#issuecomment-7661220
-      @caching_key_generator ||=
-        if secret_key_base
-          ActiveSupport::CachingKeyGenerator.new(
-            ActiveSupport::KeyGenerator.new(secret_key_base, iterations: 1000)
-          )
-        else
-          ActiveSupport::LegacyKeyGenerator.new(secrets.secret_token)
-        end
-    end
+    # def key_generator
+    #   # number of iterations selected based on consultation with the google security
+    #   # team. Details at https://github.com/rails/rails/pull/6952#issuecomment-7661220
+    #   @caching_key_generator ||=
+    #     if secret_key_base
+    #       ActiveSupport::CachingKeyGenerator.new(
+    #         ActiveSupport::KeyGenerator.new(secret_key_base, iterations: 1000)
+    #       )
+    #     else
+    #       ActiveSupport::LegacyKeyGenerator.new(secrets.secret_token)
+    #     end
+    # end
 
     # Returns a message verifier object.
     #
