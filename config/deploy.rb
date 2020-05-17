@@ -6,7 +6,7 @@ before 'deploy', 'rvm1:install:ruby'
 set :rvm_map_bins, [ 'rake', 'gem', 'bundle', 'ruby', 'puma', 'pumactl' ]
 set :application, "Rocket_Elevators_Final"
 set :repo_url, "https://github.com/maguilar93/Rocket_Elevators_Final.git"
-set :user, 'maguilar93'
+set :user, 'ubuntu'
 set :branch, :master
 set :deploy_to, '/var/www/Rocket_Elevators_Final'
 set :pty, true
@@ -29,7 +29,19 @@ set :puma_threads, [0, 8]
 set :puma_workers, 0
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true
-set :puma_preload_app, false
+
+
+set :puma_threads,    [4, 16]
+set :puma_workers,    0
+
+# Don't change these unless you know what you're doing
+set :use_sudo,        false
+set :stage,           :production
+set :deploy_via,      :remote_cache
+set :ssh_options,     { forward_agent: true, user: fetch(:user), keys: %w(~/.ssh/id_rsa.pub) }
+set :puma_preload_app, true
+
+
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
@@ -64,15 +76,62 @@ set :puma_preload_app, false
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
 
-before "deploy:assets:precompile", "deploy:yarn_install"
+# before "deploy:assets:precompile", "deploy:yarn_install"
  
+# namespace :deploy do
+#  desc 'Run rake yarn:install'
+#  task :yarn_install do
+#    on roles(:web) do
+#      within release_path do
+#        execute("cd #{release_path} && yarn install")
+#      end
+#    end
+#  end
+
+namespace :puma do
+  desc 'Create Directories for Puma Pids and Socket'
+  task :make_dirs do
+    on roles(:app) do
+      execute "mkdir #{shared_path}/tmp/sockets -p"
+      execute "mkdir #{shared_path}/tmp/pids -p"
+    end
+  end
+
+  before :start, :make_dirs
+end
+
 namespace :deploy do
- desc 'Run rake yarn:install'
- task :yarn_install do
-   on roles(:web) do
-     within release_path do
-       execute("cd #{release_path} && yarn install")
-     end
-   end
- end
+  desc "Make sure local git is in sync with remote."
+  task :check_revision do
+    on roles(:app) do
+      unless `git rev-parse HEAD` == `git rev-parse origin/master`
+        puts "WARNING: HEAD is not the same as origin/master"
+        puts "Run `git push` to sync changes."
+        exit
+      end
+    end
+  end
+
+  desc 'Initial Deploy'
+  task :initial do
+    on roles(:app) do
+      before 'deploy:restart', 'puma:start'
+      invoke 'deploy'
+    end
+  end
+
+  desc 'Restart application'
+  task :restart do
+    on roles(:app), in: :sequence, wait: 5 do
+      invoke 'puma:restart'
+    end
+  end
+
+  before :starting,     :check_revision
+  after  :finishing,    :compile_assets
+  after  :finishing,    :cleanup
+  after  :finishing,    :restart
+end
+
+
 end
