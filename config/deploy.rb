@@ -39,7 +39,7 @@ set :puma_workers,    0
 set :use_sudo,        false
 set :stage,           :production
 set :deploy_via,      :remote_cache
-set :ssh_options,     { forward_agent: true, user: fetch(:user), keys: %w(~/.ssh/id_rsa.pub) }
+set :ssh_options, { forward_agent: true, user: fetch(:user), keys: %w(~/.ssh/id_rsa) }
 set :puma_preload_app, true
 
 
