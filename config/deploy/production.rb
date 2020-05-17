@@ -25,9 +25,9 @@ set :linked_files, %w{config/database.yml config/application.yml }
 # property set. Specify the username and a domain or IP for the server.
 # Don't use `:all`, it's a meta role.
 
-role :app, %w{root@3.17.68.197}
-role :web, %w{root@3.17.68.197}
-role :db,  %w{root@3.17.68.197}
+role :app, %w{ubuntu@3.17.68.197}
+role :web, %w{ubuntu@3.17.68.197}
+role :db,  %w{ubuntu@3.17.68.197}
 
 
 
